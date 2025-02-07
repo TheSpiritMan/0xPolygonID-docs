@@ -378,7 +378,6 @@ module.exports = {
           ],
         },
         "js-sdk/js-sdk-example",
-        "js-sdk/js-sdk-browser-wallet-demo",
         "js-sdk/js-sdk-dynamic-did"
       ],
     },
