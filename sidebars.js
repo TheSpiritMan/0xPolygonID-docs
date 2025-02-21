@@ -154,7 +154,9 @@ module.exports = {
         },
         "verifier/query-builder",
         "verifier/verification-library/zk-query-language",
+        "verifier/circuits",
         "verifier/v3-circuit",
+
 
       ],
     },
