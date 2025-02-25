@@ -997,7 +997,7 @@ This request includes a LinkedMultiQuery (for multiple fields) and a V3 Atomic Q
   "typ": "application/iden3comm-plain-json",
   "type": "https://iden3-communication.io/authorization/1.0/request",
   "thid": "f8aee09d-f592-4fcc-8d2a-8938aa26676c",
-  "from": "did:polygonid:polygon:amoy:2qFroxB5kwgCxgVrNGUM6EW3khJgCdHHnKTr3VnTcp",
+  "from": "did:iden3:polygon:amoy:2qFroxB5kwgCxgVrNGUM6EW3khJgCdHHnKTr3VnTcp",
   "body": {
     "callbackUrl": "https://test.com/callback",
     "reason": "Employee verification",
@@ -1005,12 +1005,13 @@ This request includes a LinkedMultiQuery (for multiple fields) and a V3 Atomic Q
     "scope": [
       {
         "id": "1",
-        "circuitId": "LinkedMultiQuery10",
+        "circuitId": "linkedMultiQuery10-beta.1",
         "query": {
           "groupId": 1,
           "proofType": "BJJSignature",
           "allowedIssuers": ["*"],
           "type": "KYCEmployee",
+          "context": "https://raw.githubusercontent.com/iden3/claim-schema-vocab/main/schemas/json-ld/kyc-v101.json-ld",
           "credentialSubject": {
             "documentType": { "$eq": 1 },
             "position": { "$eq": "boss", "$ne": "employee" }
@@ -1019,12 +1020,13 @@ This request includes a LinkedMultiQuery (for multiple fields) and a V3 Atomic Q
       },
       {
         "id": "2",
-        "circuitId": "AtomicQueryV3",
+        "circuitId": "credentialAtomicQueryV3-beta.1",
         "query": {
           "groupId": 1,
           "proofType": "BJJSignature",
           "allowedIssuers": ["*"],
           "type": "KYCEmployee",
+          "context": "https://raw.githubusercontent.com/iden3/claim-schema-vocab/main/schemas/json-ld/kyc-v101.json-ld",
           "credentialSubject": {
             "hireDate": { "$eq": "2023-12-11" }
           }

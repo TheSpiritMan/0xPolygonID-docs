@@ -26,7 +26,7 @@ The following is the overview of the most important `circom` circuits used in Pr
 ## 1. stateTransition
 
 **Circuit Purpose:**  
-Validates an identity state transition from an `oldUserState` to a `newUserState`, ensuring the identity owner is the one making the update.
+Validates an identity state transition from an old user state to the new one, ensuring the identity owner is the one making the update.
 
 **Usage Notes:**
 
@@ -67,7 +67,6 @@ Same as `credentialAtomicQueryMTPV2`, but with support for output optimizations,
 **Usage Notes:**
 
 - Designed for on-chain verifiers.
-- Relies on a trusted setup (typical of v2 circuits).
 
 ## 5. credentialAtomicQuerySigV2
 
@@ -75,7 +74,7 @@ Same as `credentialAtomicQueryMTPV2`, but with support for output optimizations,
 Similar to `credentialAtomicQueryMTPV2` but for credentials that are signed by the issuer's BabyJubJub key rather than being included in the issuer’s Merkle Tree. It:
 
 - Verifies the issuer’s signature over the core claim representation of a W3C credential (including the Merkle root of the JSON-LD document).
-- Checks that the BabyJubJub key is included in the issuer state (which is either at genesis or published on-chain).
+- Checks that the BabyJubJub key is included in the issuer state (which is either at genesis or published on-chain) and that key is not revoked in the latest issuer state.
 
 **Usage Notes:**
 
@@ -131,7 +130,7 @@ Designed for smart contract verifiers, this circuit builds on `credentialAtomicQ
 - If authentication is enabled, the Prover must demonstrate identity ownership in the same way as `authV2` before the proof is accepted.
 - The reduced set of public inputs lowers the overhead for smart contract verification, making it more efficient for complex or frequent credential proofs on Ethereum.
 
-## 9. linkedMultiQuery10.circom
+## 9. linkedMultiQuery10-beta.1
 
 **Circuit Purpose:**  
 Generates a single proof capable of verifying up to **10 parameters** in a single query. This allows multiple credential attributes or conditions (e.g., age, location, graduation) to be checked together, simplifying and streamlining multi-parameter verifications.
